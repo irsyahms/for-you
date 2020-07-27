@@ -66,8 +66,31 @@ RULES:
 
 **/
 
+/**
+ * PSEUDOCODE
+ * 
+ * INIT numbers = [], numSearch = integer, yangKe = integer
+ * FOR each member of (numbers)
+ *    IF the member of (numbers) = numSearch THEN
+ *      yangKe = yangKe - 1
+ *    ENDIF
+ *    IF yangKe = 0 THEN
+ *      DISPLAY index of the member of (numbers)
+ *    ENDIF
+ * ENDFOR
+ * DISPLAY -1
+ */
 function cariIndex (numbers, numSearch, yangKe) {
   //your code here
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] === numSearch) {
+      yangKe -= 1
+    }
+    if (yangKe === 0) {
+      return i
+    }
+  }
+  return -1
 }
 
 console.log(cariIndex([ 4, 5, 1, 2, 4, 5, 6, 4, 4 ], 4, 3)) // 7

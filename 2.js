@@ -1,5 +1,42 @@
 function halfTriangle (height, direction) {
   // your code here
+  if (height < 4) {
+    return 'Minimum height is 4'
+  }
+
+  let final = []
+
+  switch (direction) {
+    case 'up': {
+      for (let i = 0; i < height; i++) {
+        let j = 0
+        let row = []
+        for (; j < i; j++) {
+          row.push(' ')
+        }
+        for (let k = j + 1; k <= height; k++) {
+          row.push(`${k}`)
+        }
+        final.push(row)
+      }
+      return final
+    }
+
+    case 'down': {
+      for (let i = 1; i <= height; i++) {
+        let row = []
+        let j = 1
+        for (; j <= i; j++) {
+          row.push(`${j}`)
+        }
+        for (let k = height - j; k >= 0; k--) {
+          row.push(' ')
+        }
+        final.push(row)
+      }
+      return final
+    }
+  }
 }
 
 console.log(halfTriangle(5, 'up'))
