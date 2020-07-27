@@ -61,6 +61,10 @@
 
 function getGuildMemberInfo(members) {
   // your code here
+  if (members.length == 0){
+    return `invalid data`
+  }
+
   let result = {}
   let totalLevel = 0
   let averageLevel = 0
@@ -163,4 +167,4 @@ output
 }
  */
 
-//console.log(getGuildMemberInfo([])); // invalid data
+console.log(getGuildMemberInfo([])); // invalid data

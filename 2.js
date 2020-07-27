@@ -27,7 +27,6 @@ function halfTriangle (height, direction) {
     }
   }
 
-
   return result
 }
 
