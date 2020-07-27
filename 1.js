@@ -66,8 +66,35 @@ RULES:
 
 **/
 
+
+/* PSEUDOCODE
+
+FUNCTION cariIndex PASS-IN : numbers, numSearch, yangKe
+  SET counter AS 0
+  FOR i = 0; i LESS THAN length of numbers; i INCREMENT
+    IF numbers INDEX i EQUALS numSearch
+      counter INCREMENT
+    ENDIF
+    IF counter EQUALS yangKe
+      PASS OUT i
+    ENDIF
+  ENDFOR
+  PASS OUT -1
+ENDFUNCTION
+*/
+
+
 function cariIndex (numbers, numSearch, yangKe) {
-  //your code here
+  let counter = 0
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] == numSearch) {
+      counter++
+    }
+    if (counter == yangKe) {
+      return i
+    }
+  }
+  return -1
 }
 
 console.log(cariIndex([ 4, 5, 1, 2, 4, 5, 6, 4, 4 ], 4, 3)) // 7
