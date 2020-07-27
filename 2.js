@@ -1,5 +1,38 @@
 function halfTriangle (height, direction) {
   // your code here
+  let result=[];
+  if (height<4) {
+  	return 'minimum height is 4';
+  }
+  if (direction=='up') {
+ 	 for (let i=0;i<height;i++) {
+ 	 	let temp=[];
+ 	 	for (let j=0;j<height;j++){
+ 	 		if (j>=i) {
+ 	 			temp.push(j+1);
+ 	 		}
+ 	 		else {
+  				temp.push(' ');
+  			}
+  		}
+  		result.push(temp);
+  	}
+  }
+  else if (direction=='down') {
+  	for (let i=0;i<height;i++) {
+ 	 	let temp=[];
+ 	 	for (let j=0;j<height;j++){
+ 	 		if (j<=i) {
+ 	 			temp.push(j+1);
+ 	 		}
+ 	 		else {
+  				temp.push(' ');
+  			}
+  		}
+  		result.push(temp);
+  	}
+  }
+  return result;
 }
 
 console.log(halfTriangle(5, 'up'))

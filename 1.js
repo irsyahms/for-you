@@ -68,6 +68,21 @@ RULES:
 
 function cariIndex (numbers, numSearch, yangKe) {
   //your code here
+  let j=0;
+  if (numbers.length==0) {
+  	return -1;
+  }
+  for (let i=0;i<numbers.length;i++) {
+  	if (numbers[i]==numSearch) {
+  		j++;
+  		if (j>=yangKe) {
+  			return `index ${i} => ${numbers[i]} (angka yang dicari yang ke-${j})`;
+  		}
+  	}
+  	if (j<yangKe && i==numbers.length-1) {
+  			return -1
+  	}
+  }
 }
 
 console.log(cariIndex([ 4, 5, 1, 2, 4, 5, 6, 4, 4 ], 4, 3)) // 7
