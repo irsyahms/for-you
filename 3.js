@@ -61,6 +61,33 @@
 
 function getGuildMemberInfo(members) {
   // your code here
+  if (members[0] === undefined) {
+    return 'invalid data'
+  }
+  let info = {
+    totalMember: members.length
+  }
+  let totalLevel = 0
+
+  for (const karakter of members) {
+    totalLevel += karakter.level
+  }
+  info.averageLevel = Math.floor(totalLevel / info.totalMember)
+
+  for (const karakter of members) {
+    if (karakter.level >= info.averageLevel) {
+      if (info[karakter.class] === undefined) {
+        info[karakter.class] = []
+      }
+      let chara = {
+        name: karakter.name,
+        level: karakter.level
+      }
+      info[karakter.class].push(chara)
+    }
+  }
+
+  return info
 }
 
 console.log(getGuildMemberInfo([
