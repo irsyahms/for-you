@@ -68,6 +68,25 @@ RULES:
 
 function cariIndex (numbers, numSearch, yangKe) {
   //your code here
+  let result = 0
+  let counter = 0
+
+  for (let i = 0; i < numbers.length; i++){
+    if (numSearch == numbers[i]){
+      counter += 1
+    }
+    if (counter == yangKe){
+      result = i
+      break
+    }
+  }
+
+  if (result == 0){
+    result = -1
+  }
+
+  
+  return result
 }
 
 console.log(cariIndex([ 4, 5, 1, 2, 4, 5, 6, 4, 4 ], 4, 3)) // 7
