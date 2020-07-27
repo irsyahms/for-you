@@ -61,6 +61,31 @@
 
 function getGuildMemberInfo(members) {
   // your code here
+  let average=0;
+  let result= {
+  	totalMember: 0,
+  	averageLevel: 0
+  }
+  if (members.length==0) {
+  	return 'invalid data';
+  }
+  for (let i=0;i<members.length;i++) {
+  	let memberClass = members[i]['class'];
+  	if (result[memberClass]===undefined && members[i]['level']>=92) {
+  		result[memberClass]=[];
+  	}
+  	if (members[i]['level']>=92){
+  		let obj={
+  			name:members[i]['name'],
+  			level:members[i]['level']
+  		}
+  		result[memberClass].push(obj);
+  	}
+  	average+=members[i]['level'];
+  	result['totalMember']=members.length,
+  	result['averageLevel']=Math.floor(average/members.length)
+  }
+  return result;
 }
 
 console.log(getGuildMemberInfo([
