@@ -61,7 +61,36 @@
 
 function getGuildMemberInfo(members) {
   // your code here
+  let result = {}
+  let totalLevel = 0
+  let averageLevel = 0
+
+
+  for (let i = 0; i < members.length; i++){
+    totalLevel += members[i]['level']
+  }
+  averageLevel = Math.floor(totalLevel / members.length)
+
+  result['totalMember'] = members.length
+  result['averageLevel'] = averageLevel
+
+  for (let i = 0; i < members.length; i++){
+    let nama = members[i]['name']
+    let level = members[i]['level']
+    let kelas = members[i]['class']
+    
+    if (level >= averageLevel && result[members[i]['class']] == undefined){
+      result[members[i]['class']] = [{name: nama, level: level}]
+    }else if (level >= averageLevel){
+      result[members[i]['class']].push({name: nama, level: level})
+    }
+
+  }
+
+  return result
 }
+
+
 
 console.log(getGuildMemberInfo([
   {
@@ -115,7 +144,8 @@ output
   Hunter: [ { name: 'dominique', level: 92 },{ name: 'hemogoblin', level: 93 } ]
 }
  */
-console.log(getGuildMemberInfo([
+
+ console.log(getGuildMemberInfo([
   { name: 'indah', level: 85, class: 'Assasint' },
   { name: 'juminten', level: 92, class: 'Blacksmith' },
   { name: 'kumar', level: 95, class: 'Wizard' },
@@ -132,4 +162,5 @@ console.log(getGuildMemberInfo([
   Priest: [ { name: 'lili', level: 99 } ]
 }
  */
-console.log(getGuildMemberInfo([])); // invalid data
+
+//console.log(getGuildMemberInfo([])); // invalid data
